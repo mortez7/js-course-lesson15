@@ -11,11 +11,12 @@ const DomElement = function (selector, height, width, bg, fontSize) {
     let newElement = "";
     if (this.selector.startsWith(".")) {
       newElement = document.createElement("div");
+      newElement.classList.add(this.selector.slice(1));
     } else if (this.selector.startsWith("#")) {
       newElement = document.createElement("p");
+      newElement.id = this.selector.slice(1);
     }
 
-    newElement.classList.add(this.selector);
     newElement.style.cssText = `height: ${this.height}; width: ${this.width}; background: ${this.bg}; font-size: ${this.fontSize};`;
     newElement.textContent = "asdifsudhusduhfusd";
     document.body.append(newElement);
